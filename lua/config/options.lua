@@ -1,3 +1,10 @@
+if vim.g.neovide then
+    vim.opt.guifont = "JetBrainsMono Nerd Font:h13"
+    vim.g.neovide_transparency = 0.9 -- content and title bar, both should be transparent
+    vim.g.transparency = 0.1
+    vim.g.neovide_hide_mouse_when_typing = true
+end
+
 vim.opt.number = true                  -- enable line number
 vim.opt.relativenumber = true          -- enable relative line number
 vim.opt.numberwidth = 2                -- always keep the number width to 2 to avoid text juggle
