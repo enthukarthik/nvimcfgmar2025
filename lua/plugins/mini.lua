@@ -11,6 +11,9 @@ return {
 
             -- mini.files setup
             require("mini.files").setup()       -- enable filesystem navigation through buffer
+
+            -- tabline setup
+            require("mini.tabline").setup()
         end,
     },
 }
