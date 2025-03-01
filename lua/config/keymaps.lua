@@ -7,18 +7,23 @@ vim.keymap.set({ "i", "v" }, "jk", "<Esc>",{ noremap = true, silent = true, desc
 
 vim.keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlighted text when pressing Esc in normal mode" })
 
-vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
 -- Movement between panes
-vim.keymap.set({ "n" }, "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set({ "n" }, "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set({ "n" }, "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set({ "n" }, "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { desc = "Move focus to the left window" })
+vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
+vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
+vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
 
 -- Movement between buffers
-vim.keymap.set({ "n" }, "<S-l>", ":bnext<CR>", { desc = "Move to the next buffer" })
-vim.keymap.set({ "n" }, "<S-h>", ":bprevious<CR>", { desc = "Move to the previous buffer" })
-vim.keymap.set({ "n" }, "<S-d>", ":bdelete<CR>", { desc = "Close the buffer" })
+vim.keymap.set({ "n" }, "<S-l>", "<cmd>bnext<CR>", { desc = "Move to the next buffer" })
+vim.keymap.set({ "n" }, "<S-h>", "<cmd>bprevious<CR>", { desc = "Move to the previous buffer" })
+vim.keymap.set({ "n" }, "<S-d>", "<cmd>bdelete<CR>", { desc = "Close the buffer" })
+
+-- Better terminal navigation
+vim.keymap.set({ "t" }, "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Move from terminal to the left pane" })
+vim.keymap.set({ "t" }, "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Move from terminal to the below pane" })
+vim.keymap.set({ "t" }, "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Move from terminal to the above pane" })
+vim.keymap.set({ "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move from terminal to the right pane" })
+vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Keys to remember
 -- j,k - Up & Down
@@ -29,3 +34,7 @@ vim.keymap.set({ "n" }, "<S-d>", ":bdelete<CR>", { desc = "Close the buffer" })
 -- Use each window as a buffer to CUD directory/file
 vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap = true, silent = true, desc = "Open mini files navigation" })
 
+-- Misc keybindings
+vim.keymap.set({ "n" }, "<leader>a", "ggVG", { desc = "Select all..." })
+vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
