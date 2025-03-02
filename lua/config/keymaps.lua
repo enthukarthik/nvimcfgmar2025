@@ -6,10 +6,10 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set({ "i", "v" }, "jk", "<Esc>",{ noremap = true, silent = true, desc = "Escape to normal mode,from INSERT or VISUAL, quicker with jk" })
 
 -- Disable arrow keys in the normal mode
-vim.keymap.set({ "n" }, "<left>", "<cmd>echo "Use h to move!!"<CR>")
-vim.keymap.set({ "n" }, "<right>", "<cmd>echo "Use l to move!!"<CR>")
-vim.keymap.set({ "n" }, "<up>", "<cmd>echo "Use k to move!!"<CR>")
-vim.keymap.set({ "n" }, "<down>", "<cmd>echo "Use j to move!!"<CR>")
+vim.keymap.set({ "n" }, "<Left>", "<cmd>echo 'Use h to move!!'<CR>")
+vim.keymap.set({ "n" }, "<Right>", "<cmd>echo 'Use l to move!!'<CR>")
+vim.keymap.set({ "n" }, "<Up>", "<cmd>echo 'Use k to move!!'<CR>")
+vim.keymap.set({ "n" }, "<Down>", "<cmd>echo 'Use j to move!!'<CR>")
 
 vim.keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlighted text when pressing Esc in normal mode" })
 

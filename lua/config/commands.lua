@@ -8,3 +8,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Hack to remove any plugin that sets formatoption tcro and tw for local buffers
+vim.cmd([[autocmd BufNewFile,BufRead,BufWinEnter * setlocal formatoptions-=t]])
+vim.cmd([[autocmd BufNewFile,BufRead,BufWinEnter * setlocal formatoptions-=c]])
+vim.cmd([[autocmd BufNewFile,BufRead,BufWinEnter * setlocal formatoptions-=r]])
+vim.cmd([[autocmd BufNewFile,BufRead,BufWinEnter * setlocal formatoptions-=o]])
+vim.cmd([[autocmd BufNewFile,BufRead,BufWinEnter * setlocal textwidth=0]])
