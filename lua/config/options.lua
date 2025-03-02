@@ -17,6 +17,8 @@ vim.opt.smartindent = true             -- Do smart auto indenting when starting 
 vim.opt.autoindent = true              -- It should be on when smartindent is on
 vim.opt.breakindent = true             -- Break indent for long lines so that they look visually indented
 
+vim.opt.wrap = false		       -- Don't wrap lines
+
 vim.opt.undofile = true                -- Save undo history
 
 vim.opt.ignorecase = true              -- Case insensitive search
@@ -38,12 +40,15 @@ vim.opt.sidescrolloff = 4              -- Minimal number of screen characters to
 vim.opt.termguicolors = true           -- Enable termguicolors to make some colorschemes happy
 vim.opt.background = "dark"            -- Background color preference
 
+vim.opt.virtualedit = "block,onemore"  -- Useful for rect selection (use <C-q> in windows) and <C-o> movement in Insert mode
+
 -- Tab settings
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.smarttab = true
+vim.opt.shiftround = true
 
 -- :h fo-table. Format options
 vim.opt.formatoptions = {}
