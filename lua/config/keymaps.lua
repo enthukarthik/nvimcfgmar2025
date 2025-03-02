@@ -19,6 +19,18 @@ vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { desc = "Move focus to the lower win
 vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
 vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
 
+-- Spliting window panes
+vim.keymap.set({ "n" }, "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set({ "n" }, "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set({ "n" }, "<leader>se", "<C-w>=", { desc = "Make split window panes equal in size" })
+vim.keymap.set({ "n" }, "<leader>sx", ":close<CR>", { desc = "Close the current split window" })
+
+-- Resize window panes with arrow keys
+vim.keymap.set({ "n" }, "<C-Up>", ":resize +2<CR>", { desc = "Increase the pane window size horizontally" })
+vim.keymap.set({ "n" }, "<C-Down>", ":resize -2<CR>", { desc = "Decrease the pane window size horizontally" })
+vim.keymap.set({ "n" }, "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase the pane window size vertically" })
+vim.keymap.set({ "n" }, "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease the pane window size vertically" })
+
 -- Movement between buffers
 vim.keymap.set({ "n" }, "<S-l>", "<cmd>bnext<CR>", { desc = "Move to the next buffer" })
 vim.keymap.set({ "n" }, "<S-h>", "<cmd>bprevious<CR>", { desc = "Move to the previous buffer" })
