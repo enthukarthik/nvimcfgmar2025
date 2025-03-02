@@ -15,8 +15,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Finish key mapping and option setting before loading lazy nvim
-require("config.keymaps")
+-- Make sure to setup `mapleader` and `maplocalleader` since lot of other mapping depends on this
+-- Lazy.nvim depends on this too
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- Finish options and command setting before loading lazy nvim
 require("config.options")
 require("config.commands")
 
@@ -33,3 +37,6 @@ require("lazy").setup({
     checker = { enabled = true, notify = false },
     change_detection = { enabled = true, notify = false },
 })
+
+-- Setup other keymaps
+require("config.keymaps")
