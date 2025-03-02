@@ -5,13 +5,19 @@ vim.g.maplocalleader = "\\"
 
 vim.keymap.set({ "i", "v" }, "jk", "<Esc>",{ noremap = true, silent = true, desc = "Escape to normal mode,from INSERT or VISUAL, quicker with jk" })
 
+-- Disable arrow keys in the normal mode
+vim.keymap.set({ "n" }, "<left>", "<cmd>echo "Use h to move!!"<CR>")
+vim.keymap.set({ "n" }, "<right>", "<cmd>echo "Use l to move!!"<CR>")
+vim.keymap.set({ "n" }, "<up>", "<cmd>echo "Use k to move!!"<CR>")
+vim.keymap.set({ "n" }, "<down>", "<cmd>echo "Use j to move!!"<CR>")
+
 vim.keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlighted text when pressing Esc in normal mode" })
 
 -- Movement between panes
 vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { desc = "Move focus to the left window" })
-vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
 vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
 vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
+vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
 
 -- Movement between buffers
 vim.keymap.set({ "n" }, "<S-l>", "<cmd>bnext<CR>", { desc = "Move to the next buffer" })
@@ -31,7 +37,7 @@ vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mod
 -- l - Expand and navigate
 -- L - Open the current file/directory
 -- q - quit MiniFiles
--- Use each window as a buffer to CUD directory/file
+-- Use each window as a buffer to CUD directory/file. Confirm the changes with '='
 vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap = true, silent = true, desc = "Open mini files navigation" })
 
 -- Misc keybindings

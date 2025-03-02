@@ -14,6 +14,9 @@ return {
 
             -- tabline setup
             require("mini.tabline").setup()
+
+            -- Enable comment toggling
+            require("mini.comment").setup()
         end,
     },
 }
