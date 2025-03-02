@@ -1,3 +1,6 @@
+----------------------------------------------------------------------------------------------------------------------------------------------
+--                                                Neovim bindings and non plugin related                                                    --
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 vim.keymap.set({ "i", "v" }, "jk", "<Esc>",{ noremap = true, silent = true, desc = "Escape to normal mode,from INSERT or VISUAL, quicker with jk" })
 
@@ -39,7 +42,15 @@ vim.keymap.set({ "t" }, "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Move from termin
 vim.keymap.set({ "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move from terminal to the right pane" })
 vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Keys to remember
+-- Misc keybindings
+vim.keymap.set({ "n" }, "<leader>a", "ggVG", { desc = "Select all..." })
+vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+--                           Plugin keybindings/Plugin keybinding documentations                                                            --
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 -- j,k - Up & Down
 -- h - Parent directory
 -- l - Expand and navigate
@@ -48,7 +59,7 @@ vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mod
 -- Use each window as a buffer to CUD directory/file. Confirm the changes with '='
 vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap = true, silent = true, desc = "Open mini files navigation" })
 
--- Misc keybindings
-vim.keymap.set({ "n" }, "<leader>a", "ggVG", { desc = "Select all..." })
-vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { desc = "Indent all..." })
-vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
+-- mini.comment
+-- gcc - line comment toggle
+-- gc<movement> - comment the movement line. e.g. gcip - comment inner paragraph
+-- this plugin defines a textobject gc which covers the comments
