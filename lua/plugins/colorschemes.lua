@@ -2,7 +2,7 @@ return {
     {
         -- ayu-light, ayu-mirage, ayu-dark
         "Shatur/neovim-ayu",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         opts = {},
         config = function(_, opts)
@@ -11,10 +11,13 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        lazy = true,
+        lazy = false,
         priority = 1000,
-        opts = {},
+        opts = {
+          --  transparent_mode = true,
+        },
         config = function(_, opts)
+            require("gruvbox").setup(opts)
             vim.cmd.colorscheme("gruvbox")
         end,
     },

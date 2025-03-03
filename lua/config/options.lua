@@ -7,7 +7,7 @@ end
 
 vim.opt.number = true                  -- enable line number
 vim.opt.relativenumber = true          -- enable relative line number
-vim.opt.numberwidth = 2                -- always keep the number width to 2 to avoid text juggle
+vim.opt.numberwidth = 5                -- always keep the number width to 2 to avoid text juggle
 
 vim.opt.mouse = "a"                    -- enable mouse mode, can be useful for resizing splits, if required
 
@@ -30,7 +30,7 @@ vim.opt.signcolumn = "yes"             -- Keep signcolumn on by default, useful 
 vim.opt.updatetime = 250               -- Decreate update time to swap file
 vim.opt.timeoutlen = 300               -- Decrease mapped keymap sequence wait time (jk mapping for example)
 
-vim.opt.inccommand = "split"           -- Preview substitution live, as you type
+vim.opt.inccommand = "split"           -- Preview substitution live in a split window, as you type
 
 vim.opt.cursorline = true              -- Highlight the entire line where the cursor is
 
@@ -44,10 +44,9 @@ vim.opt.virtualedit = "block,onemore"  -- Useful for rect selection (use <C-q> i
 
 -- Tab settings
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4                 -- During indentation (>>/<<) how much space to add
+vim.opt.tabstop = 4                    -- Visual guide to show how many space to show for tab key
 vim.opt.softtabstop = 4
-vim.opt.smarttab = true
 vim.opt.shiftround = true
 
 -- :h fo-table. Format options

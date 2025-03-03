@@ -44,7 +44,7 @@ vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mod
 
 -- Misc keybindings
 vim.keymap.set({ "n" }, "<leader>a", "ggVG", { desc = "Select all..." })
-vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>ia", "=G", { desc = "Indent all..." })
 vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -63,3 +63,8 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- gcc - line comment toggle
 -- gc<movement> - comment the movement line. e.g. gcip - comment inner paragraph
 -- this plugin defines a textobject gc which covers the comments
+
+-- treesitter incremental selection
+-- <Enter> key starts incremental selection
+-- <Enter> afterwards increases the selection based on the treesitter parser tree
+-- <Backspace> reduces the selection
