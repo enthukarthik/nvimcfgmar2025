@@ -145,5 +145,5 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- vim.keymap.set("n", "<leader>te", ":Telescope emoji<CR>", { noremap = true, silent = true, desc = "Open telescope emoji extension" })
 -- vim.keymap.set("n", "<leader>tg", ":Telescope glyph<CR>", { noremap = true, silent = true, desc = "Open telescope glyph extension" })
 -- vim.keymap.set("n", "<leader>tr", ":Telescope frecency<CR>", { noremap = true, silent = true, desc = "Open telescope frecency extension" })
--- <Esc> to close telescope buffer
+-- <Esc> to close telescope picker
 -- <C-q> to send to quickfix list and open quickfix list

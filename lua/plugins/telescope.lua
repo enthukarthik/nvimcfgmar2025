@@ -26,7 +26,7 @@ return {
             vim.keymap.set("n", "<leader>fr", builtins.oldfiles, { noremap = true, silent = true, desc = "Fuzzy find recent files" })
             vim.keymap.set("n", "<leader>f*", builtins.grep_string, { noremap = true, silent = true, desc = "Find string under cursor in pwd" })
             vim.keymap.set("n", "<leader>fm", builtins.marks, { noremap = true, silent = true, desc = "Find marks saved for the project" })
-            vim.keymap.set("n", "<leader>fds", builtins.lsp_document_symbols, { noremap = true, silent = true, desc = "Find symbols in the current buffer" })
+            vim.keymap.set("n", "<leader>fds", builtins.lsp_document_symbols, { noremap = true, silent = true, desc = "Find document symbols in the current buffer" })
             vim.keymap.set("n", "<leader>tf", ":Telescope file_browser<CR>", { noremap = true, silent = true, desc = "Open telescope file browser extension" })
             vim.keymap.set("n", "<leader>te", ":Telescope emoji<CR>", { noremap = true, silent = true, desc = "Open telescope emoji extension" })
             vim.keymap.set("n", "<leader>tg", ":Telescope glyph<CR>", { noremap = true, silent = true, desc = "Open telescope glyph extension" })
