@@ -43,8 +43,8 @@ vim.keymap.set({ "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move from termin
 vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Misc keybindings
-vim.keymap.set({ "n" }, "<leader>a", "ggVG", { desc = "Select all..." })
-vim.keymap.set({ "n" }, "<leader>ia", "=G", { desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>sa", "ggVG", { desc = "Select all..." })
+-- vim.keymap.set({ "n" }, "<leader>ia", "=G", { desc = "Indent all..." })
 vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,30 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- gc<movement> - comment the movement line. e.g. gcip - comment inner paragraph
 -- this plugin defines a textobject gc which covers the comments
 
--- treesitter incremental selection
+-- nvim-treesitter incremental selection
 -- <Enter> key starts incremental selection
--- <Enter> afterwards increases the selection based on the treesitter parser tree
--- <Backspace> reduces the selection
+-- <Enter> afterwards increases the selection to the parent node based on the treesitter parser tree
+-- <Backspace> reduces the selection to the child node in the treesitter parser tree
+
+-- nvim-treesitter-textobjects defines the following textobjects
+-- af - around function
+-- if - inside function
+-- ac - around class
+-- ic - inside class
+-- as - around scope
+-- <leader>a - swap the current function parameter with the next
+-- <leader>A - swap the current function parameter with the previous
+-- ]m - Goto next function start
+-- ]] - Goto next class start
+-- ]o - Goto next loop start
+-- ]s - Goto next scope start
+-- ]z - Goto next fold start
+-- ]M - Goto next function end
+-- ][ - Goto next class end
+-- [m - Goto previous function start
+-- [[ - Goto previous class start
+-- [M - Goto previous function end
+-- [] - Goto previous class end
+-- ]d - Goto next conditional
+-- [d - Goto previous conditional
+

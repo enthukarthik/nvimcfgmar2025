@@ -17,7 +17,7 @@ vim.opt.smartindent = true             -- Do smart auto indenting when starting 
 vim.opt.autoindent = true              -- It should be on when smartindent is on
 vim.opt.breakindent = true             -- Break indent for long lines so that they look visually indented
 
-vim.opt.wrap = false		       -- Don't wrap lines
+vim.opt.wrap = false                   -- Don't wrap lines
 
 vim.opt.undofile = true                -- Save undo history
 
@@ -76,5 +76,5 @@ vim.opt.listchars = { tab = "→ ", trail = "·", extends = "»", precedes = "«
 -- Sync clipboard between OS and Neovim
 -- Schedule the setting after 'UiEnter' because it can increase the startup-time.
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+    vim.opt.clipboard = "unnamedplus"
 end)
