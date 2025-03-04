@@ -79,15 +79,43 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- <leader>A - swap the current function parameter with the previous
 -- ]m - Goto next function start
 -- ]] - Goto next class start
--- ]o - Goto next loop start
 -- ]s - Goto next scope start
--- ]z - Goto next fold start
 -- ]M - Goto next function end
 -- ][ - Goto next class end
 -- [m - Goto previous function start
 -- [[ - Goto previous class start
 -- [M - Goto previous function end
 -- [] - Goto previous class end
--- ]d - Goto next conditional
--- [d - Goto previous conditional
+-- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+--
+-- -- Repeat movement with ; and ,
+-- -- ensure ; goes forward and , goes backward regardless of the last direction
+-- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+-- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+--
+-- -- vim way: ; goes to the direction you were moving.
+-- -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+-- -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+--
+-- -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+-- vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+-- vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+-- vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+-- vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
+-- mini.bracketed
+-- Target                                               Mappings    Lua function
+-- Buffer                                               [B [b ]b ]B MiniBracketed.buffer()
+-- Comment block                                        [C [c ]c ]C MiniBracketed.comment()
+-- Diagnostic                                           [D [d ]d ]D MiniBracketed.diagnostic()
+-- File on disk                                         [F [f ]f ]F MiniBracketed.file()
+-- Indent change                                        [I [i ]i ]I MiniBracketed.indent()
+-- Jump from jumplist inside current buffer             [J [j ]j ]J MiniBracketed.jump()
+-- Location from location list                          [L [l ]l ]L MiniBracketed.location()
+-- Old files                                            [O [o ]o ]O MiniBracketed.oldfile()
+-- Quickfix entry from quickfix list                    [Q [q ]q ]Q MiniBracketed.quickfix()
+-- Tree-sitter node and parents                         [T [t ]t ]T MiniBracketed.treesitter()
+-- Undo states from specially tracked linear history    [U [u ]u ]U MiniBracketed.undo()
+-- Window in current tab                                [W [w ]w ]W MiniBracketed.window()
+-- Conflict marker                                      [X [x ]x ]X MiniBracketed.conflict()
+-- Yank selection replacing latest put region           [Y [y ]y ]Y MiniBracketed.yank()
