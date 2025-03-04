@@ -42,6 +42,10 @@ vim.opt.background = "dark"            -- Background color preference
 
 vim.opt.virtualedit = "block,onemore"  -- Useful for rect selection (use <C-q> in windows) and <C-o> movement in Insert mode
 
+-- Use rg
+vim.opt.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
+vim.opt.grepformat = vim.opt.grepformat ^ { "%f:%l:%c:%m" }
+
 -- Tab settings
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4                 -- During indentation (>>/<<) how much space to add

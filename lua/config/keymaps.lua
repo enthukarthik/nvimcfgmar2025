@@ -44,12 +44,17 @@ vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mod
 
 -- Misc keybindings
 vim.keymap.set({ "n" }, "<leader>sa", "ggVG", { desc = "Select all..." })
--- vim.keymap.set({ "n" }, "<leader>ia", "=G", { desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { desc = "Indent all..." })
 vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --                           Plugin keybindings/Plugin keybinding documentations                                                            --
 ----------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Oil keymap setup
+-- <Esc> to close oil buffer
+-- '..' to move to the parent directory
+vim.keymap.set({ "n" }, "<leader>..", "<cmd>Oil --float<CR>", { noremap = true, silent = true, desc = "Launch oil" })
 
 -- j,k - Up & Down
 -- h - Parent directory
@@ -87,21 +92,23 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- [M - Goto previous function end
 -- [] - Goto previous class end
 -- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
---
--- -- Repeat movement with ; and ,
--- -- ensure ; goes forward and , goes backward regardless of the last direction
+
+-- Repeat movement with ; and ,
+-- ensure ; goes forward and , goes backward regardless of the last direction
 -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
 -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 --
--- -- vim way: ; goes to the direction you were moving.
--- -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
--- -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+-- vim way: ; goes to the direction you were moving.
+-- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+-- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 --
--- -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
 -- vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
 -- vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
 -- vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
 -- vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
+
+-- mini.ai defined more text objects with 'a' and 'i'
 
 -- mini.bracketed
 -- Target                                               Mappings    Lua function
@@ -119,3 +126,24 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- Window in current tab                                [W [w ]w ]W MiniBracketed.window()
 -- Conflict marker                                      [X [x ]x ]X MiniBracketed.conflict()
 -- Yank selection replacing latest put region           [Y [y ]y ]Y MiniBracketed.yank()
+
+-- mini.surround
+-- In normal mode
+-- sa - [S]urround [a]dd {motion}{char}. E.g. saiw) - Surround add inside word with ')'
+-- sd - [S]urround [d]elete {char}
+-- sr - [S]urround [r]eplace {from char} {to char}
+
+-- telescope keybindings
+-- vim.keymap.set("n", "<leader>ff", builtins.find_files, { noremap = true, silent = true, desc = "Fuzzy find files in pwd" })
+-- vim.keymap.set("n", "<leader>fg", builtins.live_grep, { noremap = true, silent = true, desc = "Find string in pwd" })
+-- vim.keymap.set("n", "<leader>fb", builtins.buffers, { noremap = true, silent = true, desc = "Fuzzy find from buffers" })
+-- vim.keymap.set("n", "<leader>fr", builtins.oldfiles, { noremap = true, silent = true, desc = "Fuzzy find recent files" })
+-- vim.keymap.set("n", "<leader>f*", builtins.grep_string, { noremap = true, silent = true, desc = "Find string under cursor in pwd" })
+-- vim.keymap.set("n", "<leader>fm", builtins.marks, { noremap = true, silent = true, desc = "Find marks saved for the project" })
+-- vim.keymap.set("n", "<leader>fds", builtins.lsp_document_symbols, { noremap = true, silent = true, desc = "Find symbols in the current buffer" })
+-- vim.keymap.set("n", "<leader>tf", ":Telescope file_browser<CR>", { noremap = true, silent = true, desc = "Open telescope file browser extension" })
+-- vim.keymap.set("n", "<leader>te", ":Telescope emoji<CR>", { noremap = true, silent = true, desc = "Open telescope emoji extension" })
+-- vim.keymap.set("n", "<leader>tg", ":Telescope glyph<CR>", { noremap = true, silent = true, desc = "Open telescope glyph extension" })
+-- vim.keymap.set("n", "<leader>tr", ":Telescope frecency<CR>", { noremap = true, silent = true, desc = "Open telescope frecency extension" })
+-- <Esc> to close telescope buffer
+-- <C-q> to send to quickfix list and open quickfix list
