@@ -147,3 +147,6 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- vim.keymap.set("n", "<leader>tr", ":Telescope frecency<CR>", { noremap = true, silent = true, desc = "Open telescope frecency extension" })
 -- <Esc> to close telescope picker
 -- <C-q> to send to quickfix list and open quickfix list
+
+-- which-key
+-- <leader>?
