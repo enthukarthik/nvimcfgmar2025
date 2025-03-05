@@ -1,8 +1,14 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --                                                Neovim bindings and non plugin related                                                    --
 ----------------------------------------------------------------------------------------------------------------------------------------------
-
-vim.keymap.set({ "i", "v" }, "jk", "<Esc>",{ noremap = true, silent = true, desc = "Escape to normal mode,from INSERT or VISUAL, quicker with jk" })
+-- Modes
+-- n = normal mode
+-- i = insert mode
+-- v = visual mode
+-- x = visual block mode
+-- t = terminal mode
+-- c = command mode
+vim.keymap.set({ "i", "v" }, "jk", "<Esc>",{ noremap = true, desc = "Escape to normal mode,from INSERT or VISUAL, quicker with jk" })
 
 -- Disable arrow keys in the normal mode
 vim.keymap.set({ "n" }, "<Left>", "<cmd>echo 'Use h to move!!'<CR>")
@@ -10,42 +16,51 @@ vim.keymap.set({ "n" }, "<Right>", "<cmd>echo 'Use l to move!!'<CR>")
 vim.keymap.set({ "n" }, "<Up>", "<cmd>echo 'Use k to move!!'<CR>")
 vim.keymap.set({ "n" }, "<Down>", "<cmd>echo 'Use j to move!!'<CR>")
 
-vim.keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlighted text when pressing Esc in normal mode" })
+vim.keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>", { noremap = true, desc = "Clear highlighted text when pressing Esc in normal mode" })
 
 -- Movement between panes
-vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { desc = "Move focus to the left window" })
-vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
-vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
-vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
+vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { noremap = true, desc = "Move focus to the left window" })
+vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { noremap = true, desc = "Move focus to the lower window" })
+vim.keymap.set({ "n" }, "<C-k>", "<C-w>k", { noremap = true, desc = "Move focus to the upper window" })
+vim.keymap.set({ "n" }, "<C-l>", "<C-w>l", { noremap = true, desc = "Move focus to the right window" })
 
 -- Spliting window panes
-vim.keymap.set({ "n" }, "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set({ "n" }, "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set({ "n" }, "<leader>se", "<C-w>=", { desc = "Make split window panes equal in size" })
-vim.keymap.set({ "n" }, "<leader>sx", ":close<CR>", { desc = "Close the current split window" })
+vim.keymap.set({ "n" }, "<leader>sv", "<C-w>v", { noremap = true, desc = "Split window vertically" })
+vim.keymap.set({ "n" }, "<leader>sh", "<C-w>s", { noremap = true, desc = "Split window horizontally" })
+vim.keymap.set({ "n" }, "<leader>se", "<C-w>=", { noremap = true, desc = "Make split window panes equal in size" })
+vim.keymap.set({ "n" }, "<leader>sx", ":close<CR>", { noremap = true, desc = "Close the current split window" })
 
 -- Resize window panes with arrow keys
-vim.keymap.set({ "n" }, "<C-Up>", ":resize +2<CR>", { desc = "Increase the pane window size horizontally" })
-vim.keymap.set({ "n" }, "<C-Down>", ":resize -2<CR>", { desc = "Decrease the pane window size horizontally" })
-vim.keymap.set({ "n" }, "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase the pane window size vertically" })
-vim.keymap.set({ "n" }, "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease the pane window size vertically" })
+vim.keymap.set({ "n" }, "<C-Up>", ":resize +2<CR>", { noremap = true, desc = "Increase the pane window size horizontally" })
+vim.keymap.set({ "n" }, "<C-Down>", ":resize -2<CR>", { noremap = true, desc = "Decrease the pane window size horizontally" })
+vim.keymap.set({ "n" }, "<C-Right>", ":vertical resize +2<CR>", { noremap = true, desc = "Increase the pane window size vertically" })
+vim.keymap.set({ "n" }, "<C-Left>", ":vertical resize -2<CR>", { noremap = true, desc = "Decrease the pane window size vertically" })
 
 -- Movement between buffers
-vim.keymap.set({ "n" }, "<S-l>", "<cmd>bnext<CR>", { desc = "Move to the next buffer" })
-vim.keymap.set({ "n" }, "<S-h>", "<cmd>bprevious<CR>", { desc = "Move to the previous buffer" })
-vim.keymap.set({ "n" }, "<S-d>", "<cmd>bdelete<CR>", { desc = "Close the buffer" })
+vim.keymap.set({ "n" }, "<Tab>", "<cmd>bnext<CR>", { noremap = true, desc = "Move to the next buffer" })
+vim.keymap.set({ "n" }, "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, desc = "Move to the previous buffer" })
+vim.keymap.set({ "n" }, "<leader>cb", "<cmd>bdelete<CR>", { noremap = true, desc = "Close the buffer" })
+
+-- Move text up or down
+vim.keymap.set({ "x" }, "<S-j>", ":m '>+1<CR>gv-gv", { noremap = true, desc = "Move selected text down" })
+vim.keymap.set({ "x" }, "<S-k>", ":m '<-2<CR>gv-gv", { noremap = true, desc = "Move selected text up" })
 
 -- Better terminal navigation
-vim.keymap.set({ "t" }, "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Move from terminal to the left pane" })
-vim.keymap.set({ "t" }, "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Move from terminal to the below pane" })
-vim.keymap.set({ "t" }, "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Move from terminal to the above pane" })
-vim.keymap.set({ "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move from terminal to the right pane" })
-vim.keymap.set({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set({ "t" }, "<C-h>", "<C-\\><C-n><C-w>h", { noremap = true, desc = "Move from terminal to the left pane" })
+vim.keymap.set({ "t" }, "<C-j>", "<C-\\><C-n><C-w>j", { noremap = true, desc = "Move from terminal to the below pane" })
+vim.keymap.set({ "t" }, "<C-k>", "<C-\\><C-n><C-w>k", { noremap = true, desc = "Move from terminal to the above pane" })
+vim.keymap.set({ "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, desc = "Move from terminal to the right pane" })
+vim.keymap.set({ "t" }, "<Esc>", "<C-\\><C-n>", { noremap = true, desc = "Exit terminal mode" })
+vim.keymap.set({ "t" }, "jk", "<C-\\><C-n>", { noremap = true, desc = "Exit terminal mode" })
+
+-- Visual selection remains after indentation
+vim.keymap.set({ "v", "x" }, ">", ">gv", { noremap = true, desc = "Select the same visual selection once we're done with indentation" })
+vim.keymap.set({ "v", "x" }, "<", "<gv", { noremap = true, desc = "Select the same visual selection once we're done with indentation" })
 
 -- Misc keybindings
-vim.keymap.set({ "n" }, "<leader>sa", "ggVG", { desc = "Select all..." })
-vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { desc = "Indent all..." })
-vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { desc = "Remove ^M from text copied from windows to linux" })
+vim.keymap.set({ "n" }, "<leader>sa", "ggVG", { noremap = true, desc = "Select all..." })
+vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { noremap = true, desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { noremap = true, desc = "Remove ^M from text copied from windows to linux" })
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --                           Plugin keybindings/Plugin keybinding documentations                                                            --
@@ -146,7 +161,8 @@ vim.keymap.set({ "n" }, "<leader>.", "<cmd>lua MiniFiles.open()<CR>", { noremap 
 -- vim.keymap.set("n", "<leader>tg", ":Telescope glyph<CR>", { noremap = true, silent = true, desc = "Open telescope glyph extension" })
 -- vim.keymap.set("n", "<leader>tr", ":Telescope frecency<CR>", { noremap = true, silent = true, desc = "Open telescope frecency extension" })
 -- <Esc> to close telescope picker
--- <C-q> to send to quickfix list and open quickfix list
+-- <leader>en - Edit neovim files
+-- <leader>ep - Edit neovim package files
 
 -- which-key
 -- <leader>?

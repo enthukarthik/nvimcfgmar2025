@@ -19,18 +19,20 @@ vim.opt.breakindent = true             -- Break indent for long lines so that th
 
 vim.opt.wrap = false                   -- Don't wrap lines
 
+vim.opt.autowrite = true               -- Enable autowrite
 vim.opt.undofile = true                -- Save undo history
+vim.opt.undolevels = 10000             -- Save 10000 undo history max
 
 vim.opt.ignorecase = true              -- Case insensitive search
 vim.opt.smartcase = true               -- unless capital letters are in the search term
 vim.opt.hlsearch = true                -- highlight the search term
 
-vim.opt.signcolumn = "yes"             -- Keep signcolumn on by default, useful in LSP and Git
+vim.opt.signcolumn = "yes"             -- Keep signcolumn on by default, useful in LSP and Git. Otherwise text shifts a lot
 
 vim.opt.updatetime = 250               -- Decreate update time to swap file
 vim.opt.timeoutlen = 300               -- Decrease mapped keymap sequence wait time (jk mapping for example)
 
-vim.opt.inccommand = "split"           -- Preview substitution live in a split window, as you type
+vim.opt.inccommand = "nosplit"         -- Preview substitution live in a split window, as you type
 
 vim.opt.cursorline = true              -- Highlight the entire line where the cursor is
 
@@ -40,6 +42,7 @@ vim.opt.sidescrolloff = 4              -- Minimal number of screen characters to
 vim.opt.termguicolors = true           -- Enable termguicolors to make some colorschemes happy
 vim.opt.background = "dark"            -- Background color preference
 
+vim.opt.conceallevel = 3               -- Hide markup for bold and italic
 vim.opt.virtualedit = "block,onemore"  -- Useful for rect selection (use <C-q> in windows) and <C-o> movement in Insert mode
 
 -- Use rg
@@ -69,6 +72,9 @@ vim.opt.formatoptions = {
     t = false,    -- Don't auto-wrap text using textwidth
 }
 
+-- No intro msg and no "Search hit BOTTOM" message
+vim.opt.shortmess:append("Is")
+
 -- How splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -76,6 +82,13 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display some whitespace characters in the editor
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "»", precedes = "«", eol = "¬", nbsp = '␣' }
+
+-- Insert mode completion options
+-- Open a popup menu with possible completion options, even if there is only one possibility
+-- Don't select anything unless I've selected an option
+vim.opt.completeopt = "menu,menuone,noselect,popup"
+vim.opt.pumblend = 10   -- popup blend
+vim.opt.pumheight = 7   -- no. of entries in the popup
 
 -- Sync clipboard between OS and Neovim
 -- Schedule the setting after 'UiEnter' because it can increase the startup-time.
