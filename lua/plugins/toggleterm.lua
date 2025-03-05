@@ -14,7 +14,7 @@ return {
                 direction = "float",
                 float_opts = {
                     border = "double",
-                    winblend = 10,
+                    winblend = 20,
                 },
             })
         end,
