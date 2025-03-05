@@ -5,6 +5,8 @@ return {
         enabled = true,
         opts = {
             preset = "helix", -- "classic", "modern", "helix"
+            -- TODO Need to figure out a way on how to move the older register mapping
+            -- to the new add() function in a hierarchical way
             spec = {
             },
             notify = true,
