@@ -39,7 +39,7 @@ return {
                 -- Additional vim.wo and vim.bo options
                 bo = {},
                 wo = {
-                    winblend = 0,
+                    winblend = 20,
                 },
             },
             layout = {
