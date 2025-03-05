@@ -5,6 +5,8 @@ return {
         enabled = true,
         opts = {
             preset = "helix", -- "classic", "modern", "helix"
+            spec = {
+            },
             notify = true,
             triggers = {
                 { "<auto>", mode = "nixsotc" },

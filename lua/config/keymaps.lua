@@ -39,7 +39,7 @@ vim.keymap.set({ "n" }, "<C-Left>", ":vertical resize -2<CR>", { noremap = true,
 -- Movement between buffers
 vim.keymap.set({ "n" }, "<Tab>", "<cmd>bnext<CR>", { noremap = true, desc = "Move to the next buffer" })
 vim.keymap.set({ "n" }, "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, desc = "Move to the previous buffer" })
-vim.keymap.set({ "n" }, "<leader>cb", "<cmd>bdelete<CR>", { noremap = true, desc = "Close the buffer" })
+vim.keymap.set({ "n" }, "<leader>k", "<cmd>bdelete<CR>", { noremap = true, desc = "Kill the buffer" })
 
 -- Move text up or down
 vim.keymap.set({ "x" }, "<S-j>", ":m '>+1<CR>gv-gv", { noremap = true, desc = "Move selected text down" })
@@ -57,10 +57,13 @@ vim.keymap.set({ "t" }, "jk", "<C-\\><C-n>", { noremap = true, desc = "Exit term
 vim.keymap.set({ "v", "x" }, ">", ">gv", { noremap = true, desc = "Select the same visual selection once we're done with indentation" })
 vim.keymap.set({ "v", "x" }, "<", "<gv", { noremap = true, desc = "Select the same visual selection once we're done with indentation" })
 
--- Misc keybindings
+-- Other keybindings
 vim.keymap.set({ "n" }, "<leader>sa", "ggVG", { noremap = true, desc = "Select all..." })
-vim.keymap.set({ "n" }, "<leader>ia", "ggVG=", { noremap = true, desc = "Indent all..." })
+vim.keymap.set({ "n" }, "<leader>ia", "gg=G", { noremap = true, desc = "Indent all..." })
 vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { noremap = true, desc = "Remove ^M from text copied from windows to linux" })
+vim.keymap.set({ "n" }, "<leader>p", "<cmd>Lazy<CR>", { noremap = true, desc = "Launch plugin manager" })
+vim.keymap.set({ "n" }, "<leader>q", "<cmd>wqa!<CR>", { noremap = true, desc = "Save all and quit Neovim" })
+vim.keymap.set({ "n" }, "<leader>w", "<cmd>w!<CR>", { noremap = true, desc = "Save current file" })
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --                           Plugin keybindings/Plugin keybinding documentations                                                            --
@@ -69,7 +72,7 @@ vim.keymap.set({ "n" }, "<leader>rm", ":%s/<C-q><C-m>//g<CR>", { noremap = true,
 -- Oil keymap setup
 -- <Esc> to close oil buffer
 -- '..' to move to the parent directory
-vim.keymap.set({ "n" }, "<leader>..", "<cmd>Oil --float<CR>", { noremap = true, silent = true, desc = "Launch oil" })
+-- vim.keymap.set({ "n" }, "<leader>..", "<cmd>Oil --float<CR>", { noremap = true, silent = true, desc = "Launch oil" })
 
 -- j,k - Up & Down
 -- h - Parent directory
